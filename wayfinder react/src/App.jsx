@@ -1,13 +1,13 @@
 import './App.css'
-import Domains from "./features/domains/domains"
+import Domains from "./features/domains/Domains"
+import Form from "./features/form/Form"
 
 function App() {
 
   return (
     <>
-      <div className="app">
-        <h1>Test React</h1>
-        <Domains />
+      <div>
+        <Form />
       </div>
     </>
   )

@@ -1,0 +1,15 @@
+.selection {
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 30px;
+  cursor: pointer;
+}
+
+
+.selected {
+  background-color: #e0f7fa;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 30px;
+  cursor: pointer;
+}
