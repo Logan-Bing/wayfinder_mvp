@@ -22,9 +22,10 @@ const Form = () => {
   }
 
   const handleAnswerSelect = (answer) => {
-    const updateAnswers = [...userAnswers]
-    updateAnswers[currentStep] = answer
-    setUserAnswers(updateAnswers)
+    const updatedAnswers = [...userAnswers]
+    updatedAnswers[currentStep] = answer
+    setUserAnswers(updatedAnswers)
+    setErrorMessage("")
   }
 
   return (
