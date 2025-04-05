@@ -1,15 +1,138 @@
+.form{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  color: #4B4545;
+}
+
+.question{
+  max-width: 1000px;
+  min-width: 1000px;
+  font-weight: bold;
+  font-size: clamp(1.2rem, 2vw, 2rem);
+}
+
+.form-header{
+  margin-bottom: 32px;
+}
+
+.answers{
+  width: 70%;
+  margin: 0 auto;
+}
+
 .selection {
   font-weight: bold;
   border-radius: 6px;
-  padding: 30px;
+  cursor: pointer;
+  padding: 16px 32px 16px 32px;
+  margin-bottom: 16px;
+  border-radius: 24px;
+  border: solid 1px #4B4545;
+  color: #4B4545;
+  font-weight: 500;
+}
+
+.selection:hover{
+  transform: scale(1.01);
+  transition:  transform 0.2s ease;
+}
+
+.selected {
+  background-color: #DDFFB8;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  border-radius: 24px;
+  padding: 32px 64px 32px 64px;
+  margin-bottom: 16px;
+  font-weight: 500;
+  border: 1px solid #4B4545;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+
+.selected:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.error-message{
+  color: #FF9A91;
+  font-family: 'poppins';
+  font-weight: bold;
+}
+
+.buttons-container{
+  width: 70%;
+  margin: 32px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.question-step{
+  position: relative;
+  padding: 8px 16px;
+  border: 1px solid #4B4545;
+  background-color: #FFFFFF;
+  border-radius: 24px;
+}
+
+
+.back-button{
+  padding: 8px 16px;
+  border: 1px solid #4B4545;
+  background-color: #FF9A91;
+  border-radius: 24px;
+  font-family: 'poppins';
+  font-weight: bold;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.next-button{
+  padding: 8px 16px;
+  border: 1px solid #4B4545;
+  background-color: #2961FF;
+  border-radius: 24px;
+  font-family: 'poppins';
+  color: #FFFFFF;
+  font-weight: bold;
   cursor: pointer;
 }
 
 
-.selected {
-  background-color: #e0f7fa;
-  font-weight: bold;
-  border-radius: 6px;
-  padding: 30px;
-  cursor: pointer;
+@media (max-width: 768px){
+  .question {
+    margin-top: 100px;
+    max-width: 600px;
+    width: 100%;
+  }
+
+  .answers {
+    width: 100%;
+  }
+
+  .buttons-container{
+    width: 100%;
+  }
+
+  .label{
+    display: none;
+  }
+
+  .next-button{
+    padding: 16px 32px;
+  }
+
+  .back-button{
+    padding: 16px 32px;
+  }
+
+  .selected {
+    padding: 16px 32px 16px 32px;
+  }
 }

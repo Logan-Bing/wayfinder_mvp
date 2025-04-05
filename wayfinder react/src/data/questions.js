@@ -1,7 +1,7 @@
 const questions = [
   {
     id: 1,
-    question: "Tu es devant un chemin qui part vers l’inconnu. Tu sens que c’est le moment d’avancer. Quelle est ta première réaction ?",
+    question: "Tu es devant un chemin qui part vers l’inconnu. Quelle est ta première réaction ?",
     answers: [
       "Je regarde autour de moi, je cherche un signe, un indice, un détail qui m’inspire.",
       "Je note ce que je ressens dans un carnet, j’ai besoin de poser mes idées.",
