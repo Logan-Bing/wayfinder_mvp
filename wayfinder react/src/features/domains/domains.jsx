@@ -9,7 +9,7 @@ const Domains = () => {
     useEffect(() => {
       async function loadDomains(){
         try {
-          const response = await fetch (API_URL)
+          const response = await fetch (`${API_URL}/api/v1/domains`)
           if(response.ok){
             const json = await response.json();
             setDomains(json)

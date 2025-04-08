@@ -1,0 +1,27 @@
+
+.navbar{
+  width: 100%;
+}
+
+.navbar-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px;
+}
+
+.navbar-logo{
+  text-decoration: none;
+  color: #5C87FF;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.plans{
+  font-weight: bold;
+  color: #4B4545;
+}
+
+.link{
+  text-decoration: none;
+}
