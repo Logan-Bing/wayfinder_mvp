@@ -11,7 +11,7 @@ const NavBar = () => {
           <span className='navbar-logo'>Wayfinder</span>
         </Link>
         <Link to="/" className='link'>
-          <span className='plans'>Mes plans</span>
+          <button className='nav-button'>Mes plans</button>
         </Link>
       </div>
     </nav>

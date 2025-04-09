@@ -1,0 +1,49 @@
+
+.second-section{
+  margin-top: 200px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.cards-container{
+  display: flex;
+  align-items: center;
+  gap: 64px;
+}
+
+.card{
+  background-color: #FFFFFF;
+  max-width: 250px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 32px;
+  border-radius: 12px;
+}
+
+.header-card p {
+  font-family: 'poppins';
+  font-weight: bold;
+}
+
+#color-card{
+  background-color: #5C87FF;
+}
+
+#color-card p{
+  color: #FFFFFF;
+}
+
+@media (max-width: 768px){
+
+  .cards-container{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .second-section{
+    margin-top: 64px;
+  }
+}
