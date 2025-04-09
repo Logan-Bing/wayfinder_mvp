@@ -1,0 +1,43 @@
+
+.hero-section{
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.hero{
+  padding: 32px 64px 32px 64px;
+}
+
+.hero span {
+  color: #5C87FF;
+}
+
+.hero-button{
+  color: #FFFFFF;
+  background-color: #2961FF;
+  font-weight: bold;
+  letter-spacing: 2px;
+  border: none;
+  border-radius: 12px;
+  padding: 16px 32px 16px 32px;
+  cursor: pointer;
+}
+
+@media (max-width:768px){
+  .hero-section{
+    flex-wrap: wrap;
+    margin-top: 0px;
+  }
+
+  .hero-img{
+    width: 250px;
+  }
+
+
+  .hero{
+    text-align: center;
+    padding: 0;
+  }
+}
