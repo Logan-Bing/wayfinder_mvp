@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
+import { API_URL } from "../../../constants"
 import heroImage from "../../assets/hero-image.png"
 import './Hero.css'
 
 const Hero = () => {
+
+
   return(
     <>
       <div className="hero-section">
