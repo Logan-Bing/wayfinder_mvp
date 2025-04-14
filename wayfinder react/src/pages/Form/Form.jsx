@@ -1,5 +1,6 @@
 import questions from "../../data/questions";
 import { useState } from "react";
+import { API_URL } from "../../../constants.js"
 import './Form.css'
 
 
@@ -9,11 +10,30 @@ const Form = () => {
   const [userAnswers, setUserAnswers] = useState([])
   const [errorMessage, setErrorMessage] = useState('')
 
+  const isLastStep = currentStep === questions.length - 1;
+
   const incrementStep = () => {
     if (userAnswers[currentStep]) {
       setCurrentStep(currentStep + 1)
+      if (isLastStep) return sendUserAnswers()
     } else {
       setErrorMessage('Veuillez choisir au moins une réponse')
+    }
+  }
+
+  const sendUserAnswers = async() => {
+    try {
+      const response = await fetch(`${API_URL}/api/v1/mapping`, {
+        method: 'POST',
+        headers: {
+          "Content-type": 'application/json'
+        },
+        body: JSON.stringify({ user_answers: userAnswers})
+      })
+      const data = await response.json()
+      console.log(data)
+    } catch (error) {
+      console.log("an occured error:", error)
     }
   }
 
@@ -57,7 +77,7 @@ const Form = () => {
                 <div className="question-step" >
                   <span className="label">Question</span> {currentStep + 1} / {questions.length}
                 </div>
-                <button onClick={incrementStep} className="next-button" >Suivant</button>
+                  <button onClick={incrementStep} className="next-button" >Suivant</button>
               </div>
             </div>
           ) : (
