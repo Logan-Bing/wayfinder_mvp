@@ -1,5 +1,6 @@
 import questions from "../../data/questions";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { API_URL } from "../../../constants.js"
 import './Form.css'
 
@@ -9,6 +10,8 @@ const Form = () => {
   const [currentStep, setCurrentStep] = useState(0)
   const [userAnswers, setUserAnswers] = useState([])
   const [errorMessage, setErrorMessage] = useState('')
+
+  const navigate = useNavigate()
 
   const isLastStep = currentStep === questions.length - 1;
 
@@ -21,6 +24,7 @@ const Form = () => {
     }
   }
 
+
   const sendUserAnswers = async() => {
     try {
       const response = await fetch(`${API_URL}/api/v1/mapping`, {
@@ -31,7 +35,8 @@ const Form = () => {
         body: JSON.stringify({ user_answers: userAnswers})
       })
       const data = await response.json()
-      console.log(data)
+      console.log("🚀 Données back-end : ", data)
+      navigate("/result", {state: data})
     } catch (error) {
       console.log("an occured error:", error)
     }
@@ -81,13 +86,7 @@ const Form = () => {
               </div>
             </div>
           ) : (
-            <div>Le formulaire est terminé
-              {userAnswers.map((answer) =>
-              <div>
-                <p>{answer}</p>
-              </div>
-              )}
-            </div>
+            <p>Chargement de votre profil...</p>
           )}
         </div>
     </>
