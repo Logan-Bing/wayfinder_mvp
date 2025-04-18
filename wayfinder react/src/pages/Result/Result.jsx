@@ -1,25 +1,30 @@
+// src/pages/Result.jsx
 import { useLocation } from "react-router-dom";
-import './Result.css'
-
 
 const Result = () => {
-  const location = useLocation()
-  const { matched_domains } = location.state || {}
+  const location = useLocation();
+  const { personality_summary, matched_domains } = location.state;
 
   return (
-    <div className="results">
-      <h2>Métiers suggérés</h2>
-      <ul>
-        {matched_domains?.map((domain) => (
-          <li key={domain.id}>
+    <div style={{ padding: "2rem", fontFamily: "sans-serif" }}>
+      <h1>Résultat du test</h1>
+
+      <section style={{ marginBottom: "2rem" }}>
+        <h2>Résumé de ta personnalité</h2>
+        <p>{personality_summary}</p>
+      </section>
+
+      <section>
+        <h2>Métiers suggérés</h2>
+        {matched_domains.map((domain, index) => (
+          <div key={index} style={{ marginBottom: "1rem", padding: "1rem", border: "1px solid #ccc" }}>
             <h3>{domain.name}</h3>
-            <p>{domain.fit_description}</p>
-          </li>
+            <p>{domain.description}</p>
+          </div>
         ))}
-      </ul>
+      </section>
     </div>
-  )
-}
+  );
+};
 
-
-export default Result
+export default Result;

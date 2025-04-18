@@ -1,4 +1,7 @@
+require "openai"
+
 class Api::V1::MappingController < ApplicationController
+
 
   RESPONSE_TO_DOMAINS = {
     # Question 1
@@ -80,6 +83,29 @@ def create
 
   # Va chercher les vrais objets Domain correspondants
   matched_domains = Domain.where(name: top_domains)
+
+   # === GPT PROMPT ===
+   prompt = <<~PROMPT
+   Tu es un assistant spécialisé dans la découverte de soi. À partir des réponses suivantes issues d’un test introspectif, rédige un paragraphe de 3 à 5 phrases décrivant la personnalité de cette personne. Sois simple, sincère et inspirant et parle directement a la personne.
+
+   Réponses :
+   #{user_answers.join("\n")}
+
+   Résume la personnalité de cette personne :
+ PROMPT
+
+ # === INITIALISE LE CLIENT OPENAI ===
+ client = OpenAI::Client.new(access_token: ENV["OPENAI_API_KEY"])
+
+ response = client.chat(
+   parameters: {
+     model: "gpt-3.5-turbo",
+     messages: [{ role: "user", content: prompt }],
+     temperature: 0.7
+   }
+ )
+
+ personality_summary = response.dig("choices", 0, "message", "content")
 
 
   # Envoie au front
