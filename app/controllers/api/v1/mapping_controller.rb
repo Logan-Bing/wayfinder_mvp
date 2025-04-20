@@ -86,7 +86,7 @@ def create
 
    # === GPT PROMPT ===
    prompt = <<~PROMPT
-   Tu es un assistant spécialisé dans la découverte de soi. À partir des réponses suivantes issues d’un test introspectif, rédige un paragraphe de 3 à 5 phrases décrivant la personnalité de cette personne. Sois simple, sincère et inspirant et parle directement a la personne.
+   Tu es un assistant spécialisé dans la découverte de soi. À partir des réponses suivantes issues d’un test introspectif, rédige un paragraphe de 200 caractéres maximun décrivant la personnalité de cette personne. Sois simple, sincère et inspirant et parle directement a la personne.
 
    Réponses :
    #{user_answers.join("\n")}
