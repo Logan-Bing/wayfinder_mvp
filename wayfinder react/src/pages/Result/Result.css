@@ -1,0 +1,79 @@
+
+.result-title{
+  text-align: center;
+}
+
+.result-main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+.personnality-container{
+  max-width: 300px;
+  padding: 20px;
+  border: 1px solid #4B4545;
+  border-radius: 32px;
+  background-color: #5C87FF;
+}
+
+.personnality-container h2,
+.personnality-container p {
+  color: #FFFFFF;
+}
+
+.personnality-header{
+  font-weight: bold;
+}
+
+
+.domains-container{
+  padding: 20px;
+  border-radius: 32px;
+}
+
+.domains-container p{
+  color: #4B4545;
+}
+
+.domains-main{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.domains{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: #FFFFFF;
+  border-radius: 32px;
+}
+
+.domains-text{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.domains-text h3,
+.domains-text p{
+  margin: 0;
+}
+
+.icon{
+  color: #5C87FF;
+  font-size: 24px;
+}
+
+@media (max-width: 768px){
+
+  .result-main{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+}

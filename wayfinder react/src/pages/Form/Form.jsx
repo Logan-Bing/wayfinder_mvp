@@ -86,7 +86,7 @@ const Form = () => {
               </div>
             </div>
           ) : (
-            <p>Chargement de votre profil...</p>
+            <div class="loader"></div>
           )}
         </div>
     </>
