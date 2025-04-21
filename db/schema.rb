@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_04_09_150936) do
+ActiveRecord::Schema[7.1].define(version: 2025_04_21_135928) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_04_09_150936) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "objective"
+    t.text "description"
     t.index ["domain_id"], name: "index_domain_tasks_on_domain_id"
   end
 
@@ -52,14 +54,12 @@ ActiveRecord::Schema[7.1].define(version: 2025_04_09_150936) do
   end
 
   create_table "plans", force: :cascade do |t|
-    t.bigint "user_id", null: false
     t.bigint "domain_id", null: false
     t.string "title"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["domain_id"], name: "index_plans_on_domain_id"
-    t.index ["user_id"], name: "index_plans_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -80,5 +80,4 @@ ActiveRecord::Schema[7.1].define(version: 2025_04_09_150936) do
   add_foreign_key "plan_tasks", "domain_tasks"
   add_foreign_key "plan_tasks", "plans"
   add_foreign_key "plans", "domains"
-  add_foreign_key "plans", "users"
 end

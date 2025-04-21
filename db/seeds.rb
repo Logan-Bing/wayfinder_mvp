@@ -1,4 +1,5 @@
-
+require_relative "./seed_helpers/domain_tasks_utils"
+require_relative "./seed_helpers/domain_tasks_data"
 
 domains = [
   {
@@ -123,5 +124,17 @@ domains = [
   }
 ]
 
-
 domains.each { |domain| Domain.create!(domain) }
+
+puts "✅ Domains créés : #{Domain.count}"
+
+#################################### DOMAIN TASKS #######################################################@
+
+puts "🚀 Ajout des DomainTasks..."
+
+DOMAIN_TASKS.each do |domain_name, tasks|
+  add_domain_tasks(domain_name, tasks)
+end
+
+
+puts "✅ Tous les DomainTasks ont été ajoutés !"
