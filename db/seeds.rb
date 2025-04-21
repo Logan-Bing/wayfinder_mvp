@@ -123,5 +123,42 @@ domains = [
   }
 ]
 
-
 domains.each { |domain| Domain.create!(domain) }
+
+puts "✅ Domains créés : #{Domain.count}"
+
+domain = Domain.find_by!(name: "Écrivain / Auteur")
+
+puts "✍️ Domaine trouvé : #{domain.id} - #{domain.name}"
+
+if domain
+  domain.domain_tasks.create!(
+    name: "Écrire des chapitres ou des articles régulièrement",
+    objective: "Installer une routine d’écriture",
+    description: "L’idée ici est de te mettre dans une dynamique de production régulière, même courte. L’important c’est la régularité, pas la perfection."
+  )
+
+  domain.domain_tasks.create!(
+    name: "Relire et corriger ses textes pour les améliorer",
+    objective: "Prendre du recul sur ton style",
+    description: "Ce travail de relecture te permet de voir ce qui fonctionne, ce qui cloche, et de progresser en tant qu’auteur. C’est une étape précieuse de maturation."
+  )
+
+  domain.domain_tasks.create!(
+    name: "Soumettre ses écrits à des éditeurs ou les autopublier",
+    objective: "Passer de l’écriture à la diffusion",
+    description: "Un texte prend vie quand il est partagé. Que tu choisisses la voie classique ou l’autopublication, l’idée est de confronter ton travail au monde réel."
+  )
+
+  domain.domain_tasks.create!(
+    name: "Développer sa présence en ligne (blog, réseaux sociaux, newsletters)",
+    objective: "Créer un lien avec ton public",
+    description: "Aujourd’hui, les auteurs construisent souvent leur communauté. C’est un moyen de partager ton univers, tes réflexions, et d’attirer tes premiers lecteurs."
+  )
+
+  puts "✅ DomainTasks complètes ajoutées pour Écrivain / Auteur"
+else
+  puts "❌ Domaine 'Écrivain / Auteur' introuvable"
+end
+
+puts "✅ DomainTasks créées pour #{domain.name} : #{domain.domain_tasks.count}"

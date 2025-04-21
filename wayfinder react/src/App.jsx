@@ -6,6 +6,7 @@ import PageTransiton from "./pages/PageTranstion/PageTransition"
 import Form from "./pages/Form/Form";
 import Result from "./pages/Result/Result";
 import Domain from "./pages/Domain/Domain"
+import Plan from  "./pages/Plan/Plan"
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
             <Route path="/form" element={<Form/>}/>
             <Route path="/result" element={<Result/>}/>
             <Route path="/domain/:domainId" element={<Domain/>}/>
+            <Route path="/plan/:planId" element={<Plan/>}/>
           </Routes>
         </Layout>
       </Router>
