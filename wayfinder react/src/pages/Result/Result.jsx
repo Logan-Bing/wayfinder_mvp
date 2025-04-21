@@ -1,11 +1,21 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import './Result.css'
+
 
 const Result = () => {
   const location = useLocation();
   const { personality_summary, matched_domains } = location.state;
+
+  const navigate = useNavigate()
+
+  const handleClick = (domain) => {
+    navigate(`/domain/${domain.id}`)
+  }
+
+
 
   return (
     <>
@@ -14,9 +24,9 @@ const Result = () => {
       <div class="result-main">
         <div class="domains-container">
           <h2>Les domaines a explorer</h2>
-          <div className="domains-main">
+          <div className="domains-main" >
             {matched_domains.map((domain, index) => (
-              <div key={index} class="domains">
+              <div key={index} class="domains" onClick={() => handleClick(domain)}>
                 <div class="domains-text">
                   <h3>{domain.name}</h3>
                   <p>{domain.description}</p>
