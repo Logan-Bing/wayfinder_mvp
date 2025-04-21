@@ -53,6 +53,12 @@
   border-radius: 32px;
 }
 
+.domains:hover{
+  transform: scale(1.01);
+  transition:  transform 0.2s ease;
+  cursor: pointer;
+}
+
 .domains-text{
   display: flex;
   flex-direction: column;
