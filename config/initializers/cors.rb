@@ -7,11 +7,11 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    #Where your request comes from, eg: your react app's IP adress
-    origins 'http://localhost:5173'
+    origins '*' # à remplacer plus tard par ton domaine Netlify pour + de sécurité
 
-    resource "*",
+    resource '*',
       headers: :any,
-      methods: [:get, :post, :put, :patch, :delete, :options, :head]
+      methods: [:get, :post, :patch, :put, :delete, :options]
   end
 end
+
