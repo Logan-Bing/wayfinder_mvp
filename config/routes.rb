@@ -5,8 +5,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       post "mapping", to: "mapping#create"
       get "domains/:id", to: "domains#show"
-      get "/plans/:id", to: "plans#show"
-      post "/plans", to: "plans#create"
+      resources :plans, only: [:index, :show, :create, :update]
     end
   end
 end

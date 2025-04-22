@@ -10,6 +10,34 @@ const Plan = () => {
   const [plan, setPlan] = useState(null)
   const [activeTaskIndex, setActiveTaskIndex] = useState(null)
   const [completedTasks, setCompletedTasks] = useState([])
+  const [journal, setJournal] = useState("");
+
+  const savePlanProgress = () => {
+    const updatedPlan = {
+      ...plan,
+      journal,
+      plan_tasks: plan.plan_tasks.map(task => ({
+        ...task,
+        completed: completedTasks.includes(task.id)
+      }))
+    };
+    localStorage.setItem(`plan-${plan.id}`, JSON.stringify(updatedPlan));
+    const savedPlanIds = JSON.parse(localStorage.getItem("savedPlanIds") || "[]");
+    if (!savedPlanIds.includes(plan.id)) {
+      localStorage.setItem("savedPlanIds", JSON.stringify([...savedPlanIds, plan.id]));
+    }
+    alert("Le plan est bien sauvegardé")
+  };
+
+  useEffect(() => {
+    if (plan) {
+      const completed = plan.plan_tasks
+        .filter(task => task.completed)
+        .map(task => task.id);
+      setCompletedTasks(completed);
+      setJournal(plan.journal || "");
+    }
+  }, [plan]);
 
   useEffect(() => {
     const fetchPlan = async () => {
@@ -94,11 +122,16 @@ const Plan = () => {
           <p>Mon journal de bord</p>
           <div className="journal-text">
             <textarea
+              value={journal}
+              onChange={(e) => setJournal(e.target.value)}
               placeholder="Écris ici ton ressenti, tes progrès ou tes doutes..."
               rows="5"
               cols="40"
             />
           </div>
+          <button onClick={savePlanProgress} className="save-button">
+            Sauvegarder
+          </button>
         </div>
       </div>
     </>

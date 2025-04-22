@@ -7,6 +7,7 @@ import Form from "./pages/Form/Form";
 import Result from "./pages/Result/Result";
 import Domain from "./pages/Domain/Domain"
 import Plan from  "./pages/Plan/Plan"
+import MyPlans from "./pages/MyPlan/MyPlan";
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
             <Route path="/result" element={<Result/>}/>
             <Route path="/domain/:domainId" element={<Domain/>}/>
             <Route path="/plan/:planId" element={<Plan/>}/>
+            <Route path="/MyPlans" element={<MyPlans/>}/>
           </Routes>
         </Layout>
       </Router>
