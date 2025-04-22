@@ -1,0 +1,9 @@
+[build]
+  base = "wayfinder-react"
+  command = "npm run build"
+  publish = "wayfinder-react/dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
