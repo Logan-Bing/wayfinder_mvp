@@ -1,0 +1,121 @@
+
+.task-name-header{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  padding: 8px;
+}
+
+.task-header{
+  background-color: #FFF8CF;
+  min-width: 300px;
+  max-width: 300px;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.task-header p {
+  margin: 0;
+  color: #F9C357;
+  font-weight: bold;
+}
+
+.task-infos{
+  display: none;
+}
+
+.task-infos.visible {
+  display: block;
+}
+
+.task-block{
+  background-color: #FFFFFF;
+  padding: 8px;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.task-block p {
+  font-size: 12px;
+}
+
+.task-container{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: #FFF8CF;
+  max-width: 300px;
+  padding: 20px;
+  border-radius: 12px;
+  min-height: 350px;
+}
+
+.todo-header{
+  color: #F9C357;
+}
+
+.task-main{
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.done p{
+  color: #50962A;
+}
+
+.done{
+  background-color: #DBFFCB;
+}
+
+.journal-main{
+  background-color: #5C87FF;
+  border-radius: 12px;
+  padding: 20px;
+  min-width: 450px;
+}
+
+.journal-main p {
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+.journal-text textarea{
+  min-height: 350px;
+  min-width: 400px;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.fa-chevron-right {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.fa-chevron-right.rotate {
+  transform: rotate(90deg);
+}
+
+@media (max-width: 768px){
+
+  .task-main{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .journal-main{
+    max-width: 300px;
+    min-width: 300px;
+  }
+
+  .journal-text textarea {
+    max-height: 250px;
+    max-width: 250px;
+    min-height: 250px;
+    min-width: 250px;
+  }
+
+}
