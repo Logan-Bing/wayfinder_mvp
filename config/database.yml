@@ -1,14 +1,18 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: logan
-  password:
-  host: localhost
+  pool: 5
 
 development:
   <<: *default
-  database: ton_app_development
+  database: wayfinder_development
 
 test:
   <<: *default
-  database: ton_app_test
+  database: wayfinder_test
+
+production:
+  <<: *default
+  database: wayfinder_production
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
